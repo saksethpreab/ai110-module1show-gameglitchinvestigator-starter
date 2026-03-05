@@ -5,8 +5,26 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 1. What was broken when you started?
 
 - What did the game look like the first time you ran it?
+
+
+
+
 - List at least two concrete bugs you noticed at the start  
   (for example: "the secret number kept changing" or "the hints were backwards").
+
+1. The current app struggles with creating a new game. When the user completes their first round of the game and go on to make a new game, the app will reset the attempts back to 8, but will not register new guesses into the system. What I mean is, when the user submit their new guess using the "Submit Guess" button, the attempt remain the same(8) instead of going down. The expected behvaior is that when the new game is created, the user should be able to enter in new guesses and interact with the game without any influence from previous games. Essentially, the game begins at a new 'state'.  
+
+2. The lower/higher logic checking must be incorrect. There is one time when the secret number is 26, but the program told the user to go LOWER when they entered 12. There is a clear logic error here. 
+
+3. When the user still have 1 attempt left, the program said they ran out of attempts. This is a logic error. The "Out of attempt" message should only come up AFTER the user use up their last guess. 
+
+4. When you press the new game button, the Game Over message doesn't go away. There was no proper status update of the new game. To expected behavior is when you press the button, it should display a blue message that says "New Game Created!" and update the right number to a different number. The previous dictionary that stores our previous guesses needs to be deleted while a new, clean dictionary is created to keep track of the new guesses. 
+
+5. The Show Hint button doesn't seem to connect to anything. It should have displayed a message saying "the number is around x" under the guess box. 
+
+6. The range for 'Harder' level is actually smaller -- which translates to an easier game. It should have been a larger range such as 1 - 200
+
+
 
 ---
 

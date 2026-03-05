@@ -104,6 +104,9 @@ if "status" not in st.session_state:
 if "history" not in st.session_state:
     st.session_state.history = []
 
+if "show_new_game_msg" not in st.session_state:
+    st.session_state.show_new_game_msg = False
+
 st.subheader("Make a guess")
 
 st.info(
