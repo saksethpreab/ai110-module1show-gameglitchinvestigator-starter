@@ -6,8 +6,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 - What did the game look like the first time you ran it?
 
-
-
+It was roughly playble. I understood the concept pretty quickly. Some button works but the logic of the game were primarily faulty. I've observed the bugs and list them down below. 
 
 - List at least two concrete bugs you noticed at the start  
   (for example: "the secret number kept changing" or "the hints were backwards").
