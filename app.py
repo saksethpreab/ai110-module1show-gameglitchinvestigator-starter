@@ -128,8 +128,9 @@ with col3:
 
 if new_game:
     st.session_state.attempts = 0
-    st.session_state.secret = random.randint(1, 100)
-    st.success("New game started.")
+    st.session_state.secret = random.randint(low, high)
+    st.session_state.status = "playing"
+    st.session_state.history = []
     st.rerun()
 
 if st.session_state.status != "playing":
@@ -178,6 +179,8 @@ if submit:
                         f"The secret was {st.session_state.secret}. "
                         f"Score: {st.session_state.score}"
                     )
+                else:
+                    st.rerun()
 
 st.divider()
 st.caption("Built by an AI that claims this code is production-ready.")
