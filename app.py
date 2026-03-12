@@ -20,6 +20,10 @@ def parse_guess(raw: str):
     
     if raw.isdigit():
         value = int(raw)
+    elif raw.isalpha():
+        return False, None, "No letters allowed. Please enter a number."
+    elif '-' in raw:
+        return False, None, "Negative numbers are not allowed. Please enter a positive number."
     else:
         return False, None, "That is not a number."
 
@@ -32,9 +36,9 @@ def check_guess(guess, secret, low: int, high: int):
 
     try:
         if guess > secret:
-            return "Too High", "📈 Go HIGHER!"
+            return "Too High", "📉 Go LOWER!"
         else:
-            return "Too Low", "📉 Go LOWER!"
+            return "Too Low", "📈 Go HIGHER!"
 
     except TypeError:
         return "Invalid", f"Please enter a number between {low} and {high}."
@@ -148,12 +152,8 @@ if submit:
         st.error(err)
     else:
         st.session_state.attempts += 1
-        if st.session_state.attempts % 2 == 0:
-            secret = str(st.session_state.secret)
-        else:
-            secret = st.session_state.secret
 
-        outcome, message = check_guess(guess_int, secret, low, high)
+        outcome, message = check_guess(guess_int, st.session_state.secret, low, high)
 
         if outcome == "Invalid":
             st.error(message)
