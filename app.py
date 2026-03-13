@@ -179,7 +179,7 @@ if submit:
                         f"The secret was {st.session_state.secret}. "
                         f"Score: {st.session_state.score}"
                     )
-                else:
+                elif not show_hint:
                     st.rerun()
 
 st.divider()

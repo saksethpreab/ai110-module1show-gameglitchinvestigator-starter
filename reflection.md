@@ -17,7 +17,7 @@ It was roughly playble. I understood the concept pretty quickly. Some button wor
 
 3. When the user still have 1 attempt left, the program said they ran out of attempts. This is a logic error. The "Out of attempt" message should only come up AFTER the user use up their last guess. 
 
-4. When you press the new game button, the Game Over message doesn't go away. There was no proper status update of the new game. To expected behavior is when you press the button, it should display a blue message that says "New Game Created!" and update the right number to a different number. The previous dictionary that stores our previous guesses needs to be deleted while a new, clean dictionary is created to keep track of the new guesses. 
+4. When you press the new game button, the Game Over message doesn't go away. There was no proper status update of the new game. The expected behavior is when you press the button, it should display a blue message that says "New Game Created!" and update the right number to a different number. The previous dictionary that stores our previous guesses needs to be deleted while a new, clean dictionary is created to keep track of the new guesses. 
 
 5. The Show Hint button doesn't seem to connect to anything. It should have displayed a message saying "the number is around x" under the guess box. 
 
