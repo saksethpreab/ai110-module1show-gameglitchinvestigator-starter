@@ -25,13 +25,13 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [  ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [ To guess the right number between a certain range ] Describe the game's purpose.
+- [ Value comparisons, attempts tracking, output messages, etc...] Detail which bugs you found.
+- [ Logical fixes, and better input error handling ] Explain what fixes you applied.
 
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+- [ ![alt text](image.png) ] [Insert a screenshot of your fixed, winning game here]
 
 ## 🚀 Stretch Features
 

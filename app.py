@@ -7,8 +7,7 @@ def get_range_for_difficulty(difficulty: str):
     if difficulty == "Normal":
         return 1, 100
     if difficulty == "Hard":
-        return 1, 50
-    return 1, 100
+        return 1, 200
 
 
 def parse_guess(raw: str):
@@ -72,7 +71,7 @@ difficulty = st.sidebar.selectbox(
 attempt_limit_map = {
     "Easy": 6,
     "Normal": 8,
-    "Hard": 5,
+    "Hard": 10,
 }
 attempt_limit = attempt_limit_map[difficulty]
 
@@ -80,6 +79,18 @@ low, high = get_range_for_difficulty(difficulty)
 
 st.sidebar.caption(f"Range: {low} to {high}")
 st.sidebar.caption(f"Attempts allowed: {attempt_limit}")
+
+if "difficulty" not in st.session_state:
+    st.session_state.difficulty = difficulty
+
+if st.session_state.difficulty != difficulty:
+    st.session_state.difficulty = difficulty
+    st.session_state.secret = random.randint(low, high)
+    st.session_state.attempts = 0
+    st.session_state.score = 0
+    st.session_state.status = "playing"
+    st.session_state.history = []
+    st.rerun()
 
 if "secret" not in st.session_state:
     st.session_state.secret = random.randint(low, high)
@@ -96,13 +107,10 @@ if "status" not in st.session_state:
 if "history" not in st.session_state:
     st.session_state.history = []
 
-if "show_new_game_msg" not in st.session_state:
-    st.session_state.show_new_game_msg = False
-
 st.subheader("Make a guess")
 
 st.info(
-    f"Guess a number between {low} and {high}."
+    f"Guess a number between {low} and {high}. "
     f"Attempts left: {attempt_limit - st.session_state.attempts}"
 )
 
@@ -131,6 +139,7 @@ if new_game:
     st.session_state.secret = random.randint(low, high)
     st.session_state.status = "playing"
     st.session_state.history = []
+    st.session_state.score = 0
     st.rerun()
 
 if st.session_state.status != "playing":
